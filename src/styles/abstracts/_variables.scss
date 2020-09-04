@@ -1,0 +1,47 @@
+$secondary-color: #0e214d;
+
+// Viewport declarations for responsive layouts
+
+$large-desktop: 1200px; // large desktops
+$desktop-tab: 991px; // desktops, landscape and portrait tabs
+$tab-mobile: 767px; // portrait tabs and landscape mobiles
+$mobile: 480px; // landscape and portrait mobiles
+$small-mobile: 360px; // small landscape and portrait mobiles
+
+// Font Sizes
+$base-font-size: 1.6rem;
+$h1-font-size: $base-font-size * 2.25;
+$h2-font-size: $base-font-size * 1.75;
+$h3-font-size: $base-font-size * 1.5;
+$h4-font-size: $base-font-size * 1.25;
+$h5-font-size: $base-font-size * 1.15;
+$h6-font-size: $base-font-size;
+
+// Font Weights
+$light-font-weight: 200;
+$normal-font-weight: 300;
+$bolder-font-weight: 400;
+$bold-font-weight: 500;
+$boldest-font-weight: 600;
+$heading-font-weight: $normal-font-weight;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$navbar-min-height: 40px;
+$base-border-radius: 0;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Border
+
+// Background Colors
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+$base-spacing: 1em;

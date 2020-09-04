@@ -1,4 +1,16 @@
-@import '~/normalize.css/normalize.css';
-@import './reset.local';
-@import './fonts/sf-pro-text';
-@import './typography';
+// resets
+@import "~/normalize.css/normalize.css";
+@import "./base/reset.local";
+
+// variables
+@import "./abstracts/variables";
+
+// mixins
+@import "./abstracts/mixins";
+
+// fonts
+@import "./fonts/sf-pro-text";
+@import "./base/typography";
+
+// layout
+@import "./layout/responsive-layout";

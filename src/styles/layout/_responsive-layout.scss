@@ -1,0 +1,61 @@
+// New technique to write responsive codes in individual files using variables in queries, using @content
+
+@mixin viewport-is($media) {
+  @if $media == large-desktop {
+    @media only screen and (max-width: $large-desktop) {
+      @content;
+    }
+  } @else if $media == desktop-tab {
+    @media only screen and (max-width: $desktop-tab) {
+      @content;
+    }
+  } @else if $media == tab-mobile {
+    @media only screen and (max-width: $tab-mobile) {
+      @content;
+    }
+  } @else if $media == mobile {
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
+  } @else if $media == small-mobile {
+    @media only screen and (max-width: $small-mobile) {
+      @content;
+    }
+  }
+}
+
+@mixin viewport-is-greater($media) {
+  @if $media == large-desktop {
+    @media only screen and (min-width: $large-desktop) {
+      @content;
+    }
+  } @else if $media == desktop-tab {
+    @media only screen and (min-width: $desktop-tab) {
+      @content;
+    }
+  } @else if $media == tab-mobile {
+    @media only screen and (min-width: $tab-mobile) {
+      @content;
+    }
+  } @else if $media == mobile {
+    @media only screen and (min-width: $mobile) {
+      @content;
+    }
+  } @else if $media == small-mobile {
+    @media only screen and (min-width: $small-mobile) {
+      @content;
+    }
+  }
+}
+
+//  Note: Since we are using only 'max-width' to avoid repeating codes, our implementation should follow the
+//  basic order as follows while implementing responsive codes in individual files:
+
+//  1. large-desktop
+//  2. desktop-tab
+//  3. tab-mobile
+//  4. mobile
+//  5. small-mobile
+
+//  Every time we use this method in individual files must be called (inside index.scss) after the
+//  'responsive-layout.scss' so that the variables are assigned first and then getting called from the individual files.
