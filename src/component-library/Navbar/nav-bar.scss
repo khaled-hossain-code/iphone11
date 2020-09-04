@@ -1,0 +1,12 @@
+.navbar {
+  margin: 0 auto;
+  width: 980px;
+  max-width: 980px;
+  padding: 0 22px;
+  
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    color: #f5f5f7;
+  }
+}
