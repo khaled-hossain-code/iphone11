@@ -9,4 +9,9 @@
     justify-content: space-between;
     color: #f5f5f7;
   }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+  }
 }
