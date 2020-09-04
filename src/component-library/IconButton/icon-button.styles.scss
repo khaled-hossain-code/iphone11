@@ -1,0 +1,310 @@
+@import "../../styles/utils";
+
+.icon-button {
+  @include reset-all-defaults;
+  align-items: center;
+  background: transparent;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  height: 3.2rem;
+  justify-content: center;
+  margin: 0.3rem 0.5rem 0.3rem 0.5rem;
+  padding: 0.6rem;
+  position: relative;
+  width: 3.2rem;
+
+  .icon-button__icon {
+    svg {
+      fill: $tertiary-accent;
+    }
+  }
+
+  &:hover {
+    background: $tertiary-accent-light;
+
+    .icon-button__label {
+      opacity: 1;
+      visibility: visible;
+    }
+    .icon-button__icon {
+      svg {
+        fill: $secondary-accent;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background: $white;
+
+    .icon-button__icon {
+      fill: $tertiary-accent;
+
+      svg {
+        fill: $tertiary-accent;
+      }
+    }
+  }
+
+  &--v2 {
+    background: transparent;
+
+    &:active {
+      background: transparent;
+    }
+  }
+
+  &--icon-only {
+    background: transparent;
+    border: none;
+
+    &:hover {
+      background: transparent;
+    }
+
+    &:active {
+      background: transparent;
+      border: none;
+
+      .icon-button__icon {
+        fill: $cool-gray-30;
+
+        svg {
+          fill: $cool-gray-30;
+        }
+      }
+    }
+  }
+
+  .icon-button__badge {
+    height: 8px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 8px;
+  }
+
+  &--tiny {
+    height: 2.4rem;
+    margin: 0.2rem;
+    padding: 0.4rem;
+    width: 2.4rem;
+
+    .icon-button__badge {
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &--small {
+    height: 2.8rem;
+    padding: 0.5rem;
+    width: 2.8rem;
+
+    .icon-button__badge {
+      right: 2px;
+      top: 2px;
+    }
+  }
+
+  &--large {
+    height: 3.6rem;
+    margin: 0.4rem;
+    padding: 0.7rem;
+    width: 3.6rem;
+
+    .icon-button__badge {
+      right: 8px;
+      top: 8px;
+    }
+  }
+
+  &--huge {
+    height: 5.2rem;
+    margin: 0.4rem;
+    padding: 1.3rem;
+    width: 5.2rem;
+
+    .icon-button__badge {
+      right: 21px;
+      top: 21px;
+    }
+  }
+
+  &__label {
+    background: $cool-gray-35;
+    border-radius: 0.3rem;
+    color: $cool-gray-90;
+    font-size: 1.2rem;
+    height: 2rem;
+    left: 50%;
+    line-height: 1.5em;
+    opacity: 0;
+    padding: 0.1rem 0.6rem;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    transform: translateX(-50%);
+    transition: 0.3s 0.2s;
+    visibility: hidden;
+    white-space: nowrap;
+    z-index: 1;
+
+    &--right,
+    &--left {
+      left: auto;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    &--right {
+      left: calc(100% + 0.5rem);
+    }
+
+    &--left {
+      right: calc(100% + 0.5rem);
+    }
+
+    &--top {
+      bottom: calc(100% + 0.5rem);
+      top: auto;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+
+    svg {
+      fill: $cool-gray-30;
+    }
+  }
+
+  // all the inverted states
+  &-dark {
+    background: $cool-gray-24;
+    border-color: $cool-gray-18;
+
+    .icon-button__label {
+      background: $cool-gray-90;
+      color: $black;
+    }
+
+    .icon-button__icon {
+      svg {
+        fill: $cool-gray-80;
+      }
+    }
+
+    &:hover {
+      background: $cool-gray-18;
+      border-color: $cool-gray-18;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      background: $cool-gray-95;
+      border: 0.1rem solid $cool-gray-95;
+
+      .icon-button__icon {
+        fill: $cool-gray-30;
+      }
+    }
+  }
+
+  &--action {
+    background: rgba($attracting-peach, 0.15);
+    border: 0.1rem solid rgba($attracting-peach, 0.3);
+
+    .icon-button__icon {
+      svg {
+        fill: $attracting-peach;
+      }
+    }
+
+    &:hover {
+      background: rgba($attracting-peach, 0.3);
+      border: 0.1rem solid rgba($attracting-peach, 0.3);
+
+      .icon-button__icon {
+        fill: $attracting-peach;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      background: $attracting-peach;
+      border: 0.1rem solid $attracting-peach;
+
+      .icon-button__icon {
+        fill: $white;
+      }
+    }
+  }
+
+  &--standalone {
+    background: none;
+    border: 0.1rem solid transparent;
+
+    .icon-button__icon {
+      fill: $cool-gray-60;
+    }
+
+    &.icon-button--action {
+      .icon-button__icon {
+        fill: $attracting-peach;
+      }
+
+      &:active {
+        .icon-button__icon {
+          fill: $white;
+        }
+      }
+    }
+  }
+
+  &--standalone.icon-button--v2 {
+    &:hover {
+      background: $black-14;
+    }
+
+    &:active {
+      background: $black-28;
+    }
+  }
+
+  &--disabled {
+    border: 0.1rem solid transparent;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+// Fix for IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .icon-button__icon svg {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .cart-item__remove-button .icon-button__icon {
+    height: 2rem;
+  }
+
+  .icon-button--action .icon-button__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
