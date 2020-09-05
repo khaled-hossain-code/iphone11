@@ -4,31 +4,78 @@ import { useGlobalScroll } from "../../../../../hooks/useGlobalEvents"
 import "./large-display-content.scss"
 
 function LargeDisplayContent() {
-  let initialScrollPos = 0
+  let initialScrollPosRef = useRef(0)
   const iphoneTextRef = useRef(null)
   const deviceContainerRef = useRef(null)
 
-  const getScrollDirection = () => {
-    const direction = window.pageYOffset > initialScrollPos ? "down" : "up"
-    initialScrollPos = window.pageYOffset
-    return direction
-  }
+  const getMatrixData = (matrixString) => {
+    const firstBracePos = matrixString.indexOf("(")
+    const endBracePos = matrixString.indexOf(")")
+    const values = matrixString.slice(firstBracePos + 1, endBracePos)
+    const parsedValues = values.split(",").map((val) => parseFloat(val))
 
-  const minimizeText = (direction) => {
-    if (direction === "up") {
-      iphoneTextRef.current.style.opacity =
-        parseFloat(iphoneTextRef.current.style.opacity) + 0.01
-      console.log(iphoneTextRef.current.style.opacity)
-    } else if (direction === "down") {
-      iphoneTextRef.current.style.opacity -= 0.01
+    return {
+      a: parsedValues[0],
+      b: parsedValues[1],
+      c: parsedValues[2],
+      d: parsedValues[3],
+      tx: parsedValues[4],
+      ty: parsedValues[5],
     }
   }
 
-  const minimizePhone = () => {}
   const handleMouseScroll = useCallback((event) => {
+    const minimizePhone = (scrollDirection) => {
+      if (scrollDirection === "up") {
+      }
+      // console.log(iphoneTextRef.current.style.transform)
+    }
+
+    const getScrollDirection = () => {
+      const direction =
+        window.pageYOffset > initialScrollPosRef.current ? "down" : "up"
+      initialScrollPosRef.current = window.pageYOffset
+      return direction
+    }
+
+    const minimizeText = (direction) => {
+      const diffAmount = {
+        a: 0.01,
+        d: 0.01,
+      }
+      const opacityDiff = 0.03
+      const { a, b, c, d, tx, ty } = getMatrixData(
+        iphoneTextRef.current.style.transform
+      )
+      const currentOpacity = parseFloat(iphoneTextRef.current.style.opacity)
+      let updatedstyle
+
+      if (direction === "up") {
+        updatedstyle = {
+          opacity: currentOpacity + opacityDiff,
+          transform: `matrix(${a + diffAmount.a},${b},${c},${
+            d + diffAmount.d
+          },${tx}, ${ty})`,
+        }
+
+        console.log("up", iphoneTextRef.current.style.transform)
+      } else if (direction === "down") {
+        updatedstyle = {
+          opacity: currentOpacity - opacityDiff,
+          transform: `matrix(${a - diffAmount.a},${b},${c},${
+            d - diffAmount.d
+          },${tx}, ${ty})`,
+        }
+
+        console.log("down", iphoneTextRef.current.style.transform)
+      }
+
+      Object.assign(iphoneTextRef.current.style, updatedstyle)
+    }
+
     const scrollDirection = getScrollDirection()
     minimizeText(scrollDirection)
-    minimizePhone()
+    minimizePhone(scrollDirection)
     // event.preventDefault()
   }, [])
 
