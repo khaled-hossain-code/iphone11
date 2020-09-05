@@ -2,7 +2,9 @@
   height: 44px;
   width: 100%;
   min-width: 1024px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
   display: flex;
   align-items: center;
+  font-size: 14px;
 }

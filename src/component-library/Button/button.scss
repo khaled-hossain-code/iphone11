@@ -1,0 +1,263 @@
+@import "../../styles/utils";
+
+.button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+} // To remove extra padding from input button... .button is the class name of the input button
+
+%button {
+  align-items: center;
+  background: $white;
+  border: 1px solid $tertiary-accent-light;
+  border-radius: 30px;
+  box-shadow: 0 1px 3px rgba($tertiary-accent, 0.16);
+  color: $primary-text;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: $bold-font-weight;
+  justify-content: center;
+  line-height: 1.5em;
+  margin: 0 3px;
+  padding: 3px 16px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button,
+a.button {
+  @extend %button;
+
+  &:hover {
+    background: $white;
+    border: 1px solid $tertiary-accent-light;
+    box-shadow: 0 3px 10px rgba($tertiary-accent, 0.24);
+    color: $primary-text;
+  }
+
+  &:active {
+    background: $white;
+    border: 1px solid $tertiary-accent-light;
+    color: $primary-text;
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--v2 {
+    border-radius: 3px;
+
+    &:hover {
+      background: $white;
+      border: 1px solid $tertiary-accent-light;
+      box-shadow: 0 3px 10px rgba($tertiary-accent, 0.24);
+      color: $primary-text;
+      padding: 3px 16px;
+    }
+
+    &:active {
+      background: $white;
+      border: 1px solid $tertiary-accent-light;
+      color: $primary-text;
+      outline: none;
+      padding: 3px 16px;
+    }
+  }
+
+  &-dark {
+    background: $cool-gray-24;
+    border: 1px solid $cool-gray-18;
+    color: $cool-gray-80;
+
+    &:hover {
+      background: $cool-gray-18;
+      border: 1px solid transparent;
+      color: $cool-gray-90;
+    }
+
+    &:active {
+      background: $cool-gray-95;
+      border: 1px solid transparent;
+      color: $cool-gray-30;
+    }
+
+    &--over-image {
+      background: rgba($cool-gray-30, 0.9);
+      border: 1px solid $cool-gray-24;
+      color: $cool-gray-80;
+
+      &:hover {
+        background: rgba($cool-gray-24, 0.9);
+        border: 1px solid transparent;
+        color: $cool-gray-90;
+      }
+
+      &:active {
+        background: rgba($cool-gray-95, 0.9);
+        border: 1px solid $cool-gray-93;
+        color: $cool-gray-30;
+      }
+    }
+  }
+
+  &--normal {
+    margin: 4px;
+    padding: 7px 12px;
+    height: 32px;
+  }
+
+  &--large {
+    margin: 4px;
+    padding: 5px 19px;
+  }
+
+  &--large.button--v2 {
+    margin: 4px;
+    padding: 5px 16px;
+  }
+
+  &--huge {
+    font-size: 18px;
+    line-height: 1.45;
+    margin: 4px;
+    padding: 12px 28px;
+  }
+
+  &--huge.button--v2 {
+    font-size: 18px;
+    line-height: 1.45;
+    margin: 4px;
+    padding: 12px 16px;
+  }
+
+  &--small {
+    font-size: 12px;
+    margin: 3px;
+    padding: 4px 15px;
+  }
+
+  &--small.button--v2 {
+    font-size: 12px;
+    margin: 4px;
+    padding: 4px 16px;
+  }
+
+  &--tiny {
+    font-size: 12px;
+    margin: 2px;
+    padding: 2px 7px;
+  }
+
+  &--tiny.button--v2 {
+    font-size: 12px;
+    margin: 4px;
+    padding: 2px 16px;
+  }
+
+  &--disabled {
+    border: 1px solid transparent;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &--full-width {
+    display: block;
+    width: 100%;
+  }
+
+  &--danger {
+    background: rgba($attracting-peach, 0.15);
+    border: 1px solid rgba($attracting-peach, 0.3);
+    color: $attracting-peach;
+
+    &:hover {
+      background: rgba($attracting-peach, 0.3);
+      border: 1px solid rgba($attracting-peach, 0.3);
+      color: rgba($attracting-peach, 0.3);
+    }
+
+    &:active {
+      background: $attracting-peach;
+      border: 1px solid $attracting-peach;
+      color: $white;
+    }
+  }
+
+  &--primary {
+    background: $primary-accent;
+    border: none;
+    box-shadow: 0 3px 6px rgba($primary-accent, 0.08);
+    color: $white;
+
+    &:hover {
+      background: $primary-accent;
+      border: none;
+      box-shadow: 0 3px 6px rgba($primary-accent, 0.48);
+      color: $white;
+    }
+
+    &:active {
+      background: $primary-accent;
+      border: none;
+      color: $white;
+    }
+  }
+
+  &--tertiary {
+    background: $tertiary-accent;
+    border: none;
+    box-shadow: 0 1px 3px rgba($tertiary-accent, 0.16);
+    color: $white;
+
+    &:hover {
+      background: $tertiary-accent;
+      border: none;
+      box-shadow: 0 3px 10px rgba($tertiary-accent, 0.48);
+      color: $white;
+    }
+
+    &:active {
+      background: $tertiary-accent;
+      border: none;
+      color: $white;
+    }
+  }
+
+  &--over-image {
+    background: rgba($white, 0.9);
+    border: 1px solid $cool-gray-94;
+    color: $cool-gray-30;
+
+    &:hover {
+      background: rgba($cool-gray-94, 0.9);
+      border: 1px solid transparent;
+      color: $cool-gray-20;
+    }
+
+    &:active {
+      background: rgba($cool-gray-35, 0.9);
+      border: 1px solid $cool-gray-30;
+      color: $cool-gray-90;
+    }
+  }
+
+  &--plain {
+    background: none;
+    border: none;
+  }
+
+  &__icon {
+    display: inline-block;
+    line-height: 10px;
+    margin: 0 5px 0 0;
+
+    svg {
+      height: 16px;
+      width: 16px;
+    }
+  }
+}

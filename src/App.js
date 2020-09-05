@@ -1,10 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import Home from "./pages/Home"
-import NotFound from "./pages/NotFound"
-import ComingSoon from "./pages/ComingSoon"
+import routes from "./routes"
 import PrimaryNavbar from "./components/PrimaryNavbar"
-// import SecondaryNavbar from "./components/SecondaryNavbar"
+import SecondaryNavbar from "./components/SecondaryNavbar"
 
 import "./App.css"
 
@@ -13,16 +11,11 @@ function App() {
     <div className="App">
       <Router>
         <PrimaryNavbar />
+        <SecondaryNavbar />
         <Switch>
-          <Route path="/mac" component={ComingSoon} />
-          <Route path="/ipad" component={ComingSoon} />
-          <Route path="/iphone" component={ComingSoon} />
-          <Route path="/watch" component={ComingSoon} />
-          <Route path="/tv" component={ComingSoon} />
-          <Route path="/music" component={ComingSoon} />
-          <Route path="/support" component={ComingSoon} />
-          <Route path="/" component={Home} />
-          <Route component={NotFound} />
+          {routes.map(({ path, component, exact }) => (
+            <Route key={path} path={path} component={component} exact={exact} />
+          ))}
         </Switch>
       </Router>
     </div>
