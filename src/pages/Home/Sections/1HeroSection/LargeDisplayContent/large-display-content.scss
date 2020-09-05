@@ -14,11 +14,6 @@
     align-items: center;
   }
 
-  .iphone-text {
-    transform: matrix(0.5, 0, 0, 0.5, 0, 0);
-    opacity: 1;
-  }
-
   .hero-title-start {
     display: flex;
     align-items: center;
@@ -37,11 +32,11 @@
   .device-container {
     width: 1120px;
     height: 1260px;
-    transform: matrix(2.52755, 0, 0, 2.52755, 0, 729.487);
+    transform: matrix(3.05357, 0, 0, 3.05357, 153, 892.406);
     visibility: visible;
     display: flex;
     position: relative;
-    --device-scale-expr: min((100vh - 150px)/100a1h, (100vw - 50px)/100a1w);
+    // --device-scale-expr: min((100vh - 150px)/100a1h, (100vw - 50px)/100a1w);
   }
 
   .hardware-container {
