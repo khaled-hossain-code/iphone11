@@ -1,0 +1,84 @@
+.large-display-content {
+  display: block;
+  height: 225vh;
+  position: relative;
+  border: 1px solid blue;
+
+  .sticky-content {
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    position: sticky;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .iphone-text {
+    transform: matrix(0.5, 0, 0, 0.5, 0, 0);
+    opacity: 1;
+  }
+
+  .hero-title-start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  // .will-change {
+  //   will-change: transform, opacity;
+  // }
+
+  .device-container {
+    width: 1120px;
+    height: 1260px;
+    transform: matrix(2.52755, 0, 0, 2.52755, 0, 729.487);
+    visibility: visible;
+    display: flex;
+    position: relative;
+    --device-scale-expr: min((100vh - 150px)/100a1h, (100vw - 50px)/100a1w);
+  }
+
+  .hardware-container {
+    align-items: center;
+    display: flex;
+    width: 1120px;
+    height: 1260px;
+    position: relative;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  .hardware-wrapper {
+    height: 1169px;
+    position: absolute;
+    top: 51px;
+    width: 594px;
+  }
+
+  .hardware {
+    background-image: url("../../../../../assets/images/phone/hero_phone.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  .screen {
+    background-image: url("../../../../../assets/images/phone/hero_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 1084px;
+    width: 504px;
+    position: absolute;
+    top: 41px;
+    left: 44px;
+  }
+}
