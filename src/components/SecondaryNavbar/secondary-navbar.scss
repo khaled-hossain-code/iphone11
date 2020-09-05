@@ -11,6 +11,12 @@
   background-color: rgba(255, 255, 255, 0.72);
   backdrop-filter: saturate(180%) blur(20px);
   transition: background-color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+  z-index: 1;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+  letter-spacing: normal;
 
   .title {
     font-size: 21px;

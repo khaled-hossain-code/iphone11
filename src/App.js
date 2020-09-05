@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import routes from "./routes"
 import PrimaryNavbar from "./components/PrimaryNavbar"
 import SecondaryNavbar from "./components/SecondaryNavbar"
+import StickyPlaceHolder from "./component-library/StickyPlaceHolder"
 
 import "./App.css"
 
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <PrimaryNavbar />
+        <StickyPlaceHolder />
         <SecondaryNavbar />
         <Switch>
           {routes.map(({ path, component, exact }) => (
