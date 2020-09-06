@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Demo Link](https://gifted-mcnulty-86de7c.netlify.app/)
+
+![](iphone11-home.gif)
 
 ## Available Scripts
 
