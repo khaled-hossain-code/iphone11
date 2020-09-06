@@ -12,6 +12,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .hero-title-start {
@@ -32,7 +33,6 @@
   .device-container {
     width: 1120px;
     height: 1260px;
-    transform: matrix(3.05357, 0, 0, 3.05357, 153, 892.406);
     visibility: visible;
     display: flex;
     position: relative;

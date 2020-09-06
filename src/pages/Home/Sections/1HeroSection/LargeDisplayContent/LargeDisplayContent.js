@@ -25,12 +25,7 @@ function LargeDisplayContent() {
   }
 
   const handleMouseScroll = useCallback((event) => {
-    const minimizePhone = (scrollDirection) => {
-      if (scrollDirection === "up") {
-      }
-      // console.log(iphoneTextRef.current.style.transform)
-    }
-
+    const iphoneTextStyle = iphoneTextRef.current.style
     const getScrollDirection = () => {
       const direction =
         window.pageYOffset > initialScrollPosRef.current ? "down" : "up"
@@ -38,16 +33,14 @@ function LargeDisplayContent() {
       return direction
     }
 
-    const minimizeText = (direction) => {
+    const handleTextEffect = (direction) => {
       const diffAmount = {
         a: 0.01,
         d: 0.01,
       }
       const opacityDiff = 0.03
-      const { a, b, c, d, tx, ty } = getMatrixData(
-        iphoneTextRef.current.style.transform
-      )
-      const currentOpacity = parseFloat(iphoneTextRef.current.style.opacity)
+      const { a, b, c, d, tx, ty } = getMatrixData(iphoneTextStyle.transform)
+      const currentOpacity = parseFloat(iphoneTextStyle.opacity)
       let updatedstyle
 
       if (direction === "up") {
@@ -57,8 +50,6 @@ function LargeDisplayContent() {
             d + diffAmount.d
           },${tx}, ${ty})`,
         }
-
-        console.log("up", iphoneTextRef.current.style.transform)
       } else if (direction === "down") {
         updatedstyle = {
           opacity: currentOpacity - opacityDiff,
@@ -66,16 +57,36 @@ function LargeDisplayContent() {
             d - diffAmount.d
           },${tx}, ${ty})`,
         }
-
-        console.log("down", iphoneTextRef.current.style.transform)
       }
 
-      Object.assign(iphoneTextRef.current.style, updatedstyle)
+      Object.assign(iphoneTextStyle, updatedstyle)
+    }
+
+    const handlePhoneEffect = (direction) => {
+      const deviceContainerStyle = deviceContainerRef.current.style
+      const diffAmount = {
+        a: 0.03,
+        d: 0.03,
+        ty: 9.82,
+      }
+      const { a, b, c, d, tx, ty } = getMatrixData(
+        deviceContainerStyle.transform
+      )
+
+      if (direction === "up") {
+        deviceContainerStyle.transform = `matrix(${
+          a + diffAmount.a
+        },${b},${c},${d + diffAmount.d},${tx}, ${ty + diffAmount.ty})`
+      } else if (direction === "down") {
+        deviceContainerStyle.transform = `matrix(${
+          a - diffAmount.a
+        },${b},${c},${d - diffAmount.d},${tx}, ${ty - diffAmount.ty})`
+      }
     }
 
     const scrollDirection = getScrollDirection()
-    minimizeText(scrollDirection)
-    minimizePhone(scrollDirection)
+    handleTextEffect(scrollDirection)
+    handlePhoneEffect(scrollDirection)
     // event.preventDefault()
   }, [])
 
@@ -89,7 +100,11 @@ function LargeDisplayContent() {
           ref={iphoneTextRef}
           className="iphone-text hero-title-start will-change"
         />
-        <div ref={deviceContainerRef} className="device-container">
+        <div
+          ref={deviceContainerRef}
+          className="device-container"
+          style={{ transform: "matrix(4.0375, 0, 0, 4.0375, 0, 1179.96)" }}
+        >
           {/* video goes here */}
           <div className="hardware-container">
             <div className="hardware-wrapper">
